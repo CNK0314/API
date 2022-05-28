@@ -57,6 +57,7 @@ function addStudentList(studentlist){
 }
 function addStudentData(student){
     let idElem = document.getElementById('id')
+    console.log(student)
     idElem.innerHTML = student.id
     let studentIdElem = document.getElementById('studentId')
     studentIdElem.innerHTML = student.studentId
@@ -75,6 +76,7 @@ function onLoad(){
         .then(data =>{
             addStudentList(data)
         })
+        hideAll()
 //    student = {
 //     "studentId": "642110314",
 //     "name": "Chanakarn",
@@ -175,3 +177,34 @@ function showAllStudent() {
 //     showAllStudent()
 // }
 
+var singleStudentResult = document.getElementById('single_student_result')
+var listStudentResult = document.getElementById('output')
+var addUserDetail = document.getElementById('addUserDetail')
+
+function hideAll(){
+    singleStudentResult.style.display = 'none'
+    listStudentResult.style.display = 'none'
+    addUserDetail.style.display = 'none'
+}
+
+document.getElementById('allStudentMenu').addEventListener('click',(event) =>{
+    // hideAll()
+    // listStudentResult.style.display = 'block'
+    showStudentBlock()
+})
+document.getElementById('addStudentMenu').addEventListener('click',(event) =>{
+    hideAll()
+    addUserDetail.style.display = 'block'
+})
+
+function showStudentBlock(student){
+    hideAll()
+    listStudentResult.style.display = 'block'
+    showAllStudent
+}
+function showStudentBlock(student){
+    hideAll()
+    console.log(student)
+    singleStudentResult.style.display = 'block'
+    addStudentData(student)
+}
